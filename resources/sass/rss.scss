@@ -1,0 +1,81 @@
+// Let's start with the basics
+$base-color:  #e31d1d;
+$active-color: #06f;
+
+//Include Sencha Standard components
+@import 'sencha-touch/default/all';
+
+@include sencha-panel;
+@include sencha-buttons;
+@include sencha-sheet;
+@include sencha-picker;
+@include sencha-tabs;
+@include sencha-toolbar;
+@include sencha-toolbar-forms;
+@include sencha-indexbar;
+@include sencha-list;
+@include sencha-layout;
+@include sencha-form;
+@include sencha-msgbox;
+@include sencha-loading-spinner;
+
+$list-padding: .5em;
+
+.x-toolbar {
+	.x-title {
+	    color: #FFF;	    
+	}
+}
+
+.rss-feed-list {
+
+    .feed-list-item {
+	
+        padding: $list-padding/2;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-bottom-width: 0;
+
+        .x-name {
+	        padding: 10px 0 0 10px;
+	        font-size: 1.1em;
+	    }
+	
+        &:last-child {
+            border-bottom-width: 1px;
+        }
+        
+    }
+
+}
+
+.rss-news-list {
+	
+	.x-list-item {
+	
+	    font-size: 0.8em;
+	
+        h1 {
+		    font-weight: bold;
+		}
+		
+		p.content {
+			
+		}
+		
+		span.author {
+			padding-left: 20px;
+			clear: left;
+			color: grey;
+			background: theme-image('rss', 'user.png') no-repeat !important;
+		}
+		
+		span.date {
+			float: right;
+			padding-right: 20px;
+			background: theme-image('rss', 'time.png') no-repeat right center !important;
+		}
+		
+	}
+	
+}
