@@ -19,7 +19,7 @@ Ext.define('RSS.tux.util.Url',{
      * @return {String} The url converted in a friendly format.
      */
     prettify: function(url){
-	    return url.replace(/[^a-zA-Z0-9]+/g, "-").toLowerCase();
+        return url.replace(/[^a-zA-Z0-9]+/g, "-").toLowerCase();
     },
 
     /**
@@ -29,8 +29,8 @@ Ext.define('RSS.tux.util.Url',{
      * @param {String} url The new url hash to set.
      */
     browseTo: function(url){
-	    window.location.hash = url;
-	},
+        window.location.hash = url;
+    },
 
     /**
      * Get the requested url hash path index.
@@ -38,7 +38,7 @@ Ext.define('RSS.tux.util.Url',{
      * @return {String} The url Hash path requested.
      */
     getPath: function(index){
-	    return window.location.hash.replace('#','').split('/')[index].replace('.html', '');
+        return window.location.hash.replace('#','').split('/')[index].replace('.html', '');
     },
 
     /**
@@ -46,16 +46,16 @@ Ext.define('RSS.tux.util.Url',{
      * @return The previous url hash path.
      */
     getPrevPath: function(){
-	    var url = window.location.hash,
-	        lastIndex = url.lastIndexOf('/');
-	    return url.substr(0, lastIndex);
+        var url = window.location.hash,
+            lastIndex = url.lastIndexOf('/');
+        return url.substr(0, lastIndex);
     },
 
     /**
      * Move the browser to the prevous url hash path.
      */
     up: function(){
-	    this.browseTo(this.getPrevPath() + '.html');
+        this.browseTo(this.getPrevPath() + '.html');
     }
-	
+    
 });

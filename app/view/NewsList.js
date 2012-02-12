@@ -19,14 +19,14 @@ Ext.define('RSS.view.NewsList', {
         ],
         items: [
             {
-	            //Definition of the top docked toolbar
+                //Definition of the top docked toolbar
                 xtype: 'toolbar',
                 docked: 'top',
                 title: 'News',
                 items: [
                     {
-	                    /* Definition of the button that allows
-	                     * the user to go back to the feeds view. */
+                        /* Definition of the button that allows
+                         * the user to go back to the feeds view. */
                         text: 'Feeds',
                         action: 'showfeeds',
                         ui: 'back',

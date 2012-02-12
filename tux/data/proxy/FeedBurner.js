@@ -5,7 +5,7 @@
  * Custom FeedBurner JsonP proxy.
  */
 Ext.define('RSS.tux.data.proxy.FeedBurner', {
-	
+    
     extend: 'Ext.data.proxy.JsonP',
 
     xtype: 'feedburner',
@@ -19,7 +19,7 @@ Ext.define('RSS.tux.data.proxy.FeedBurner', {
     feedBurnerUrl: 'http://feeds.feedburner.com/',
 
     buildRequest: function(operation) {
-	
+    
         var request    = this.callParent(arguments),
             params     = request.getParams();
 

@@ -21,14 +21,14 @@ Ext.define('RSS.view.Feeds', {
         defaultType: 'feedlistitem',
         items: [
             {
-	            //Definition of the top docked toolbar
+                //Definition of the top docked toolbar
                 xtype: 'toolbar',
                 docked: 'top',
                 title: 'Feeds',
                 items: [
                     {
-	                    /* Definition of the button which allow the user
-	                     * to add a new feed. */
+                        /* Definition of the button which allow the user
+                         * to add a new feed. */
                         text: 'New',
                         action: 'addfeed'
                     }

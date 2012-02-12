@@ -7,7 +7,7 @@
  * placed on every associated item.
  */
 Ext.define('RSS.tux.dataview.FeedListItem', {
-	
+    
     extend: 'Ext.dataview.component.DataItem',
 
     requires: ['Ext.Button'],
@@ -15,38 +15,38 @@ Ext.define('RSS.tux.dataview.FeedListItem', {
     xtype: 'feedlistitem',
 
     config: {
-	    
-	    /**
-	     * A cusom component class that will allow me to define
-	     * its style using COMPASS an SASS.
-	     */
-	    cls: 'feed-list-item',
-	
-	    /**
+        
+        /**
+         * A cusom component class that will allow me to define
+         * its style using COMPASS an SASS.
+         */
+        cls: 'feed-list-item',
+    
+        /**
          * Setting up the DataMap object.
          */
-	    dataMap: {
+        dataMap: {
             getName: {
                 setHtml: 'name'
             }
         },
-	
-	    /**
+    
+        /**
          * @cfg {Ext.Component} name
          * The component used to show the Feed name.
          */
-	    name: {
+        name: {
             cls: 'x-name',
             flex: 1
         },
-	
-	    /**
+    
+        /**
          * @cfg {Ext.Button} editButton
          * The component that allows the user to edit the Feed.
          */
         editButton: {
-	        text: 'Edit',
-	        width: 20
+            text: 'Edit',
+            width: 20
         },
 
         /**
@@ -66,7 +66,7 @@ Ext.define('RSS.tux.dataview.FeedListItem', {
      * @return {Ext.Component} The Name component.
      */
     applyName: function(config) {
-	
+    
         return Ext.factory(config, Ext.Component, this.getName());
 
     },
@@ -77,8 +77,8 @@ Ext.define('RSS.tux.dataview.FeedListItem', {
      * @param {Ext.Component} oldName The old component.
      */
     updateName: function(newName, oldName) {
-	
-	    //If is already defined a name component this is removed
+    
+        //If is already defined a name component this is removed
         if (newName) {
             this.add(newName);
         }
@@ -114,8 +114,8 @@ Ext.define('RSS.tux.dataview.FeedListItem', {
      * @param {Ext.Button} oldEditButton The old Edit Button.
      */
     updateEditButton: function(newEditButton, oldEditButton) {
-	
-	    //If is already defined an Edit button this is removed
+    
+        //If is already defined an Edit button this is removed
         if (oldEditButton) {
             this.remove(oldEditButton);
         }
@@ -125,7 +125,7 @@ Ext.define('RSS.tux.dataview.FeedListItem', {
          * for its tap event.
          */
         if (newEditButton) {
-	        newEditButton.on('tap', this.onItemEdit, this);
+            newEditButton.on('tap', this.onItemEdit, this);
             this.add(newEditButton);
         }
 
@@ -137,19 +137,19 @@ Ext.define('RSS.tux.dataview.FeedListItem', {
      * @param {Ext.EventObject} e The Event object.
      */
     onItemEdit: function(btn, e){
-	
-	    //Getting the dataview
-	    var dataview = this.config.dataview,
-	
-	        //Getting the record associated to this dataview item
-	        record = this.getRecord();
+    
+        //Getting the dataview
+        var dataview = this.config.dataview,
+    
+            //Getting the record associated to this dataview item
+            record = this.getRecord();
 
         //Fires the "feededit" event
         dataview.fireEvent('feededit', dataview, this, record);
 
         //Prevent the dataview "itemtap" event
         e.stopPropagation();
-	
+    
     }
 
 });

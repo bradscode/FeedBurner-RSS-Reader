@@ -26,8 +26,8 @@ Ext.ClassManager.setAlias('RSS.tux.data.proxy.FeedBurner', 'proxy.feedburner');
 
 //Definition of the application
 Ext.application({
-	
-	//Swtting the application name
+    
+    //Swtting the application name
     name: 'RSS',
 
     //Setting the application requirements

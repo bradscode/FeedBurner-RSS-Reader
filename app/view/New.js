@@ -11,14 +11,14 @@ Ext.define('RSS.view.New', {
     config: {
         items: [
             {
-	            //Definition of the top docked toolbar
+                //Definition of the top docked toolbar
                 xtype: 'toolbar',
                 itemId: 'tbrFeedConfig',
                 docked: 'top',
                 items: [
                     {    
-	                    /* Definition of the button which allows
-	                     * the user to go back to the feeds view. */
+                        /* Definition of the button which allows
+                         * the user to go back to the feeds view. */
                         text: 'Feeds',
                         action: 'showfeeds',
                         ui: 'back',
@@ -27,22 +27,22 @@ Ext.define('RSS.view.New', {
                 ]
             },
             {
-	            /* Definition of the fieldset which contains some
-	             * form element that allows the user to specify all
-	             * the feed related informations. */
+                /* Definition of the fieldset which contains some
+                 * form element that allows the user to specify all
+                 * the feed related informations. */
                 xtype: 'fieldset',
                 title: 'Feed',
                 instructions: 'The feed url will be updated automatically with the feed burner fase url ' + 
                               '(feed://feeds.feedburner.com/) so please enter only its name.',
                 items: [
                     {
-	                    //Field which contains the feed name
+                        //Field which contains the feed name
                         xtype: 'textfield',
                         label: 'Name',
                         name: 'name'
                     },
                     {
-	                    //Field which contains the feed url
+                        //Field which contains the feed url
                         xtype: 'textfield',
                         label: 'Url',
                         name: 'url'
@@ -50,8 +50,8 @@ Ext.define('RSS.view.New', {
                 ]
             },
             {
-	            /* Definition of a button that allows the user
-	             * to save the new specified field. */
+                /* Definition of a button that allows the user
+                 * to save the new specified field. */
                 xtype: 'button',
                 action: 'savefeed',
                 ui: 'action',
@@ -63,8 +63,8 @@ Ext.define('RSS.view.New', {
                 height: 10
             },
             {
-	            /* Definition of a button that allows the user
-	             * to delete the selected feed. */
+                /* Definition of a button that allows the user
+                 * to delete the selected feed. */
                 xtype: 'button',
                 action: 'deletefeed',
                 ui: 'decline',

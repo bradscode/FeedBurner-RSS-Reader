@@ -13,9 +13,9 @@ Ext.define('RSS.view.NewsContainer', {
         'RSS.tux.fx.layout.card.TimeMachine'
     ],
     config: {
-	    /* Notice how this view use a custom card layout animation
-		 * called "timemachine" and how its direction is also
-		 * custom instead of using the common left, right, up and down ones. */
+        /* Notice how this view use a custom card layout animation
+         * called "timemachine" and how its direction is also
+         * custom instead of using the common left, right, up and down ones. */
         layout: {
             type: 'card',
             animation: {
@@ -26,22 +26,22 @@ Ext.define('RSS.view.NewsContainer', {
         },
         items: [
             {
-	            //Definition of the top docked toolbar
+                //Definition of the top docked toolbar
                 xtype: 'toolbar',
                 docked: 'top',
                 items: [
                     {
-	                    /* Definition of the button that allows the user
-	                     * to go back to the selected feed news list. */
+                        /* Definition of the button that allows the user
+                         * to go back to the selected feed news list. */
                         text: 'News',
                         action: 'shownews',
                         ui: 'back',
                         navigation: true
                     },
                     {
-	                    /* Definition of the button that allows the user
-	                     * to open a new browser page to reach out
-	                     * the news url. */
+                        /* Definition of the button that allows the user
+                         * to open a new browser page to reach out
+                         * the news url. */
                         text: 'Open News',
                         action: 'readmore'
                     },
@@ -49,8 +49,8 @@ Ext.define('RSS.view.NewsContainer', {
                         xtype: 'spacer'
                     },
                     {
-	                    /* Definition of the button that allows the user
-	                     * to move to the previous news. */
+                        /* Definition of the button that allows the user
+                         * to move to the previous news. */
                         action: 'prevnews',
                         direction: 'past',
                         ui: 'plain',
@@ -58,8 +58,8 @@ Ext.define('RSS.view.NewsContainer', {
                         iconCls: 'arrow_left'
                     },
                     {
-	                    /* Definition of the button that allows the user
-	                     * to move to the next news. */
+                        /* Definition of the button that allows the user
+                         * to move to the next news. */
                         action: 'nextnews',
                         direction: 'future',
                         ui: 'plain',
