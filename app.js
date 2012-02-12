@@ -18,7 +18,7 @@ Ext.Loader.setConfig({
     enabled: true,
     paths: {
         'RSS.tux': 'tux',
-        'RSS.override': 'app/override'
+        'RSS.override': 'override'
     }
 });
 
