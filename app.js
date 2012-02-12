@@ -17,7 +17,8 @@
 Ext.Loader.setConfig({
     enabled: true,
     paths: {
-        'RSS.tux': 'tux'
+        'RSS.tux': 'tux',
+        'RSS.override': 'app/override'
     }
 });
 
@@ -32,6 +33,7 @@ Ext.application({
 
     //Setting the application requirements
     requires: [
+        'RSS.override.data.proxy.Server',
         'RSS.tux.util.Url'
     ],
 
