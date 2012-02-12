@@ -155,54 +155,61 @@ Ext.define('RSS.controller.Feeds', {
     },
     editFeed: function(feed){
 	
-	    var record = Ext.getStore('Feeds').findRecord('nameRewrite', feed);
+	    var me = this,
+	        record = Ext.getStore('Feeds').findRecord('nameRewrite', feed);
 	    
 	    if(record){
-	        this.showFeedConfig();
-	        this.getToolbarFeedConfig().setTitle(record.get('name'));
-	        this.getDeleteFeedBtn().show();
-	        this.getNewFeedView().setRecord(record);
+	        me.showFeedConfig();
+	        me.getToolbarFeedConfig().setTitle(record.get('name'));
+	        me.getDeleteFeedBtn().show();
+	        me.getNewFeedView().setRecord(record);
 	    }else{
 		
 		    Ext.Msg.alert('Feed not found', 'The feed requested has not been found!');
-		    this.rtShowFeeds();
+		    me.rtShowFeeds();
 	    }
 	
     },
     readNews: function(feed, news){
 	
-	    var me = this,
-	        feedRecord = Ext.getStore('Feeds').findRecord('nameRewrite', feed);
-	        newsIndex = Ext.getStore('News').find('titleRewrite', news);
+	    if(!this.disableRouting){
 	
-	    if(feedRecord){
+	    	var me = this,
+		        feedRecord = Ext.getStore('Feeds').findRecord('nameRewrite', feed);
+		        newsIndex = Ext.getStore('News').find('titleRewrite', news);
+	
+		    if(feedRecord){
 		
-            if(newsIndex >= 0){
+	            if(newsIndex >= 0){
 	
-	            this.doReadNews(newsIndex);
+		            me.doReadNews(newsIndex);
 	
-            }else{
+	            }else{
 	
-	            if(Ext.getStore('News').getCount() == 0){
+		            if(Ext.getStore('News').getCount() == 0){
 		
-		            this.showFeedNews(feed, Ext.bind(this.readNews, this, [feed, news]), false);
+			            me.showFeedNews(feed, Ext.bind(me.readNews, me, [feed, news]), false);
 			
 		
-		        }else{
+			        }else{
 			
-	            	Ext.Msg.alert('News not found', 'The News requested has not been found!');
-				    me.rtShowFeeds();
+		            	Ext.Msg.alert('News not found', 'The News requested has not been found!');
+					    me.rtShowFeeds();
 			
-			    }
+				    }
 	
-            }
+	            }
 
-		}else{
+			}else{
 			
-			Ext.Msg.alert('Feed not found', 'The feed requested has not been found!');
-		    me.rtShowFeeds();
+				Ext.Msg.alert('Feed not found', 'The feed requested has not been found!');
+			    me.rtShowFeeds();
+			
+			}
 			
 		}
+		
+		this.disableRouting = false;
 	
     },
     showFeedNews: function(feed, callback, showView){
@@ -331,6 +338,8 @@ Ext.define('RSS.controller.Feeds', {
         me.getPrevNewsButton().setHidden(me.newsIndex == 0);
 
         me.getNextNewsButton().setHidden(me.newsIndex == store.getCount() - 1);
+
+        me.disableRouting = true;
 
         url.browseTo(Ext.String.format('{0}/{1}.html', url.getPrevPath(), news.getId()));
 

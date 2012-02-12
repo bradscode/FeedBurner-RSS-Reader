@@ -6,7 +6,7 @@ Ext.define('RSS.tux.util.UrlRewrite',{
     
     rewrite: function(url){
 	
-	    return url = url.replace(/[^a-zA-Z0-9]+/g, "-").toLowerCase();
+	    return url.replace(/[^a-zA-Z0-9]+/g, "-").toLowerCase();
 	
     },
 
