@@ -7,7 +7,7 @@
  * This class could be considered as the real application Engine.
  */
 Ext.define('RSS.controller.Feeds', {
-	
+    
     extend: 'Ext.app.Controller',
 
     //Including all the view handled by this controller
@@ -20,12 +20,12 @@ Ext.define('RSS.controller.Feeds', {
     ],
 
     config: {
-	
-	    /* Definition of all the routes handled
-	     * by the controller. */
+    
+        /* Definition of all the routes handled
+         * by the controller. */
         routes: {
-	            
-	        //The user request to display the available Feeds
+                
+            //The user request to display the available Feeds
             '': 'showFeeds',
             'feeds.html': 'showFeeds',
 
@@ -47,8 +47,8 @@ Ext.define('RSS.controller.Feeds', {
 
         //Definition of all the controller references.
         refs: {
-	
-	        //Reference to the Feed List Dataview
+    
+            //Reference to the Feed List Dataview
             feedList: {
                 xtype: 'feedlist',
                 selector: 'feedlist',
@@ -158,8 +158,8 @@ Ext.define('RSS.controller.Feeds', {
      * to keep the DOM clear from invisible components and improve
      * the application performances.
      * @param {Ext.layout.Card} view The view instance.
-	 * @param {Mixed} newActiveItem The new active item.
-	 * @param {Mixed} oldActiveItem The old active item.
+     * @param {Mixed} newActiveItem The new active item.
+     * @param {Mixed} oldActiveItem The old active item.
      */
     onCardChange: function(view, newActiveItem, oldActiveItem){
     
@@ -171,20 +171,20 @@ Ext.define('RSS.controller.Feeds', {
 
     /**
      * Ask to change the current Viewport animation.
-	 * @param {Ext.Component} component The component who called this function.
+     * @param {Ext.Component} component The component who called this function.
      */
     changeViewportAnimation: function(component){
 
         /* If this function has been called by a button, then will be established
          * the animation reverse configuration by its ui */
         if(component instanceof Ext.Button){
-	
+    
             this.doChangeViewportAnimation(component.config.ui === 'back' ? true : false);
 
         /* Otherwise this function is called by an Ext.DataView so the reverse
          * attribute should always be false */
         }else{
-	
+    
             this.doChangeViewportAnimation(false);
 
         }
@@ -192,7 +192,7 @@ Ext.define('RSS.controller.Feeds', {
 
     /**
      * Change the Viewport animation.
-	 * @param {Boolean} reverse The reverse layout annimation attribute.
+     * @param {Boolean} reverse The reverse layout annimation attribute.
      */
     doChangeViewportAnimation: function(reverse){
     
@@ -270,8 +270,8 @@ Ext.define('RSS.controller.Feeds', {
         
         //Check if the application handle the requested Feed
         if(record){
-	
-	        //Calling the function that display the Feed configuration
+    
+            //Calling the function that display the Feed configuration
             me.showFeedConfig();
 
             //Change the Toolbar title with the requested Feed name
@@ -291,7 +291,7 @@ Ext.define('RSS.controller.Feeds', {
             Ext.Msg.alert('Feed not found', 'The feed requested has not been found!');
 
             /* Calling the function which will change the application url hash to
-	         * bring the user back to the feeds list. */
+             * bring the user back to the feeds list. */
             me.rtShowFeeds();
         }
     
@@ -345,7 +345,7 @@ Ext.define('RSS.controller.Feeds', {
                         Ext.Msg.alert('News not found', 'The News requested has not been found!');
         
                         /* Calling the function which will change the application url hash to
-				         * bring the user back to the feeds list. */
+                         * bring the user back to the feeds list. */
                         me.rtShowFeeds();
             
                     }
@@ -358,7 +358,7 @@ Ext.define('RSS.controller.Feeds', {
                 Ext.Msg.alert('Feed not found', 'The feed requested has not been found!');
 
                 /* Calling the function which will change the application url hash to
-		         * bring the user back to the feeds list. */
+                 * bring the user back to the feeds list. */
                 me.rtShowFeeds();
             
             }
@@ -373,8 +373,8 @@ Ext.define('RSS.controller.Feeds', {
     /**
      * Retrive all the news contained inside a Feed.
      * @param {String} feed The Feed name.
-	 * @param {Function} callback The callback function to call when the news are loaded.
-	 * @param {Boolean} showView True if the News view should be set as active inside the viewport.
+     * @param {Function} callback The callback function to call when the news are loaded.
+     * @param {Boolean} showView True if the News view should be set as active inside the viewport.
      * @private
      */
     showFeedNews: function(feed, callback, showView){
@@ -399,9 +399,9 @@ Ext.define('RSS.controller.Feeds', {
         /* Checking if the requested feed is currently
          * handed by the application. */
         if(record){
-	    
-	        //Getting the new requested Feed Url
-	        newUrl = record.get('url');
+        
+            //Getting the new requested Feed Url
+            newUrl = record.get('url');
 
             /* Checking if the new requested url is different form the previous
              * one because, if not, the store already has the requested news loaded. */ 
@@ -492,8 +492,8 @@ Ext.define('RSS.controller.Feeds', {
      * dataview component when the user tap on the edit feed button
      * from the list of the available ones.
      * @param {Ext.dataview.DataView} dataview The Dataview component.
-	 * @param {Ext.tux.dataview.FeedListItem} item The custom dataview item component.
-	 * @param {RSS.model.Feed} record The selected Feed record
+     * @param {Ext.tux.dataview.FeedListItem} item The custom dataview item component.
+     * @param {RSS.model.Feed} record The selected Feed record
      * @private
      */
     rtEditFeed: function(list, item, record){
@@ -507,9 +507,9 @@ Ext.define('RSS.controller.Feeds', {
      * ItemTap function called when the user select a feed
      * from the list of the available ones.
      * @param {Ext.dataview.DataView} dataview The Dataview component.
-	 * @param {Number} index The index of the item tapped.
-	 * @param {Ext.Element/Ext.dataview.component.DataItem} target The element or DataItem tapped.
-	 * @param {RSS.model.Feed} record The selected Feed record.
+     * @param {Number} index The index of the item tapped.
+     * @param {Ext.Element/Ext.dataview.component.DataItem} target The element or DataItem tapped.
+     * @param {RSS.model.Feed} record The selected Feed record.
      * @private
      */
     rtViewFeed: function(dataview, index, target, record){
@@ -522,9 +522,9 @@ Ext.define('RSS.controller.Feeds', {
     /**
      * ItemTap function called when the user select a news to read.
      * @param {Ext.dataview.DataView} dataview The Dataview component.
-	 * @param {Number} index The index of the item tapped.
-	 * @param {Ext.Element/Ext.dataview.component.DataItem} target The element or DataItem tapped.
-	 * @param {RSS.model.News} record The selected News record.
+     * @param {Number} index The index of the item tapped.
+     * @param {Ext.Element/Ext.dataview.component.DataItem} target The element or DataItem tapped.
+     * @param {RSS.model.News} record The selected News record.
      * @private
      */
     rtReadNews: function(dataview, index, target, record){
@@ -593,7 +593,7 @@ Ext.define('RSS.controller.Feeds', {
          * need to simulate a transition effect because there is not
          * a previous or next view. */
         }else{
-	
+    
             newsContainer.getLayout().setAnimation(null);
 
         }
