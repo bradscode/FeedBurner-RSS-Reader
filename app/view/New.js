@@ -32,8 +32,6 @@ Ext.define('RSS.view.New', {
                  * the feed related informations. */
                 xtype: 'fieldset',
                 title: 'Feed',
-                instructions: 'The feed url will be updated automatically with the feed burner fase url ' + 
-                              '(feed://feeds.feedburner.com/) so please enter only its name.',
                 items: [
                     {
                         //Field which contains the feed name
@@ -45,6 +43,7 @@ Ext.define('RSS.view.New', {
                         //Field which contains the feed url
                         xtype: 'textfield',
                         label: 'Url',
+                        placeHolder: 'http://feeds.feedburner.com/...',
                         name: 'url'
                     }
                 ]

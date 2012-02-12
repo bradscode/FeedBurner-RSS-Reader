@@ -444,7 +444,20 @@ Ext.define('RSS.controller.Feeds', {
             record = this.getNewFeedView().getRecord(),
 
             //Creating the new feed Record
-            feed = Ext.create('RSS.model.Feed', this.getNewFeedView().getValues());
+            feed = Ext.create('RSS.model.Feed', this.getNewFeedView().getValues()),
+
+            //Validation the feed and get the errors if any
+            errors = feed.validate();
+   
+        //The feed is not valid
+        if(!errors.isValid()){
+            
+            //Showing the validation error
+            Ext.Msg.alert('Feed Invalid', Ext.String.format('The field "{0}" {1}.', errors.first().getField(), errors.first().getMessage()));
+
+            //The feed will not be saved
+            return;
+        }
         
         /* If the form contains a record, this means that the user
          * is updating a feed and not adding a new one, so the old one

@@ -17,7 +17,11 @@ Ext.define('RSS.model.Feed', {
                  * converted in a prettify format. */
                 return url.prettify(record.get('name'));
         
-            }},
+            }}
+        ],
+        //The Url should be a valid FeedBurner one
+        validations: [
+            { type: 'format', field: 'url', matcher: /^http:\/\/feeds.feedburner.com\/.?/ }
         ],
         /* This model use a localstorage proxy to be able to save
          * all the user feeds locally without needing to be specified 

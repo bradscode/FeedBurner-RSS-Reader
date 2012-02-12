@@ -15,9 +15,6 @@ Ext.define('RSS.tux.data.proxy.FeedBurner', {
     //Google JSON Feed API Url
     baseUrl: 'https://ajax.googleapis.com/ajax/services/feed/load',
 
-    //Base Feeds Url
-    feedBurnerUrl: 'http://feeds.feedburner.com/',
-
     buildRequest: function(operation) {
     
         var request    = this.callParent(arguments),
@@ -26,7 +23,7 @@ Ext.define('RSS.tux.data.proxy.FeedBurner', {
         Ext.applyIf(params, {
             v: '1.0',
             num: 100,
-            q: this.feedBurnerUrl + request.getUrl()
+            q: request.getUrl()
         });
 
         request.setParams(params);
