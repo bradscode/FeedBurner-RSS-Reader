@@ -1,3 +1,9 @@
+/**
+ * @author Andrea Cammarata (@AndreaCammarata)
+ * @class RSS.tux.data.proxy.FeedBurner
+ * @extends Ext.data.proxy.JsonP
+ * Custom FeedBurner JsonP proxy.
+ */
 Ext.define('RSS.tux.data.proxy.FeedBurner', {
 	
     extend: 'Ext.data.proxy.JsonP',
@@ -6,8 +12,10 @@ Ext.define('RSS.tux.data.proxy.FeedBurner', {
     
     autoAppendParams: false,
 
+    //Google JSON Feed API Url
     baseUrl: 'https://ajax.googleapis.com/ajax/services/feed/load',
 
+    //Base Feeds Url
     feedBurnerUrl: 'http://feeds.feedburner.com/',
 
     buildRequest: function(operation) {
@@ -24,8 +32,7 @@ Ext.define('RSS.tux.data.proxy.FeedBurner', {
         request.setParams(params);
         request.setUrl(Ext.urlAppend(this.baseUrl, Ext.urlEncode(params)));
 
-        console.log(request.getUrl());
-
         return request;
+
     }
 });

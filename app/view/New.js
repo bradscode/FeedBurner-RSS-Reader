@@ -1,39 +1,57 @@
+/**
+ * @author Andrea Cammarata (@AndreaCammarata)
+ * @class RSS.view.New
+ * @extends Ext.form.Panel
+ * View which allow the user to add a new feed
+ * that should be handled by the application.
+ */
 Ext.define('RSS.view.New', {
     extend: 'Ext.form.Panel',
     alias: 'widget.newfeed',
     config: {
-	    items: [
+        items: [
             {
-		        xtype: 'toolbar',
-		        itemId: 'tbrFeedConfig',
-		        docked: 'top',
-		        items: [
-		            {
-			            text: 'Feeds',
-			            action: 'showfeeds',
-			            ui: 'back',
-			            navigation: true
-		            }
-		        ]
-	        },
-	        {
-		        xtype: 'fieldset',
-		        title: 'Feed',
-		        instructions: 'The feed url will be updated automatically with the feed burner fase url (feed://feeds.feedburner.com/) so please enter only its name.',
-		        items: [
-		            {
-			            xtype: 'textfield',
-			            label: 'Name',
-			            name: 'name'
-		            },
-		            {
-			            xtype: 'textfield',
-			            label: 'Url',
-			            name: 'url'
-		            }
-		        ]
-	        },
-	        {
+	            //Definition of the top docked toolbar
+                xtype: 'toolbar',
+                itemId: 'tbrFeedConfig',
+                docked: 'top',
+                items: [
+                    {    
+	                    /* Definition of the button which allows
+	                     * the user to go back to the feeds view. */
+                        text: 'Feeds',
+                        action: 'showfeeds',
+                        ui: 'back',
+                        navigation: true
+                    }
+                ]
+            },
+            {
+	            /* Definition of the fieldset which contains some
+	             * form element that allows the user to specify all
+	             * the feed related informations. */
+                xtype: 'fieldset',
+                title: 'Feed',
+                instructions: 'The feed url will be updated automatically with the feed burner fase url ' + 
+                              '(feed://feeds.feedburner.com/) so please enter only its name.',
+                items: [
+                    {
+	                    //Field which contains the feed name
+                        xtype: 'textfield',
+                        label: 'Name',
+                        name: 'name'
+                    },
+                    {
+	                    //Field which contains the feed url
+                        xtype: 'textfield',
+                        label: 'Url',
+                        name: 'url'
+                    }
+                ]
+            },
+            {
+	            /* Definition of a button that allows the user
+	             * to save the new specified field. */
                 xtype: 'button',
                 action: 'savefeed',
                 ui: 'action',
@@ -41,10 +59,12 @@ Ext.define('RSS.view.New', {
                 height: 50
             },
             {
-	            xtype: 'container',
-	            height: 10
+                xtype: 'container',
+                height: 10
             },
             {
+	            /* Definition of a button that allows the user
+	             * to delete the selected feed. */
                 xtype: 'button',
                 action: 'deletefeed',
                 ui: 'decline',
@@ -52,6 +72,6 @@ Ext.define('RSS.view.New', {
                 hidden: true,
                 height: 50
             }
-	    ]
-    }	
+        ]
+    }    
 });
