@@ -53,6 +53,15 @@ Ext.application({
         'Feeds',
         'News'
     ],
+
+    //Including all the view handled by this controller
+    views: [
+        'Feeds',
+        'NewsList',
+        'NewsContainer',
+        'News',
+        'New'
+    ],
     
     //Setting the Viewport configuration
     viewport: {

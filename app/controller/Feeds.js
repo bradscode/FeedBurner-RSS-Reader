@@ -10,15 +10,6 @@ Ext.define('RSS.controller.Feeds', {
     
     extend: 'Ext.app.Controller',
 
-    //Including all the view handled by this controller
-    views: [
-        'Feeds',
-        'NewsList',
-        'NewsContainer',
-        'News',
-        'New'
-    ],
-
     config: {
     
         /* Definition of all the routes handled
